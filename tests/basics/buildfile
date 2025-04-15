@@ -1,0 +1,3 @@
+import libs = cpr%lib{cpr}
+
+exe{driver}: {hxx cxx}{**} $libs testscript{**}

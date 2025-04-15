@@ -1,0 +1,15 @@
+: 1
+name: cpr
+version: 1.11.2
+type: lib
+language: c++
+summary: C++ Requests: Curl for People, a spiritual port of Python Requests.
+license: MIT
+description-file: README.md
+package-description-file: PACKAGE-README.md
+url: https://github.com/libcpr/cpr
+email: build2@cppget.org
+#build-error-email: user@example.org
+depends: * build2 >= 0.17.0
+depends: * bpkg >= 0.17.0
+depends: libcurl ^8.8.0+3

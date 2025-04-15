@@ -1,0 +1,6 @@
+$out_root/
+{
+  include src/cpr/
+}
+
+export $out_root/src/cpr/$import.target

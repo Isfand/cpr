@@ -1,0 +1,14 @@
+pub_hdrs = hxx{** -cprver} hxx{cprver}
+
+./: $pub_hdrs
+
+hxx{cprver}: in{cprver} $src_root/manifest
+
+# Install into the cpr/ subdirectory of, say, /usr/include/
+# recreating subdirectories.
+#
+hxx{*}:
+{
+  install         = include/cpr/
+  install.subdirs = true
+}
