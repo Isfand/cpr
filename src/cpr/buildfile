@@ -1,6 +1,6 @@
-intf_libs = # Interface dependencies.
+intf_libs = libcurl%lib{curl} # Interface dependencies.
 impl_libs = # Implementation dependencies.
-import x_libs += libcurl%lib{curl}
+#import xxxx_libs += libcurl%lib{curl}
 
 # Public headers.
 #

@@ -2,6 +2,9 @@
 
 The `cpr` C++ library provides <SUMMARY-OF-FUNCTIONALITY>.
 
+## Repository
+Add this location into your repositories.manifest under 'role: prerequisite'
+location: https://github.com/Isfand/cpr.git#master
 
 ## Usage
 
