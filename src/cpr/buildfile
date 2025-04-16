@@ -1,6 +1,7 @@
-intf_libs = libcurl%lib{curl} # Interface dependencies.
+intf_libs = # Interface dependencies.
 impl_libs = # Implementation dependencies.
 #import xxxx_libs += libcurl%lib{curl}
+import intf_libs += libcurl%lib{curl}
 
 # Public headers.
 #
@@ -25,7 +26,6 @@ src_pfx_src = [dir_path] $src_root/src/
 
 cxx.poptions =+ "-I$out_pfx_src" "-I$src_pfx_src" \
                 "-I$out_pfx_inc" "-I$src_pfx_inc"
-cxx.libs =+ "-lcurl"
 
 obja{*}: cxx.poptions += -DCPR_STATIC_BUILD
 objs{*}: cxx.poptions += -DCPR_SHARED_BUILD
