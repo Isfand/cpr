@@ -1,8 +1,6 @@
 #ifndef CPR_CPR_H
 #define CPR_CPR_H
 
-#include <libca-certificates-curl/path.h>
-
 #include "cpr/api.h"
 #include "cpr/auth.h"
 #include "cpr/bearer.h"
@@ -44,39 +42,5 @@
 #include "cpr/verbose.h"
 
 #define CPR_LIBCURL_VERSION_NUM LIBCURL_VERSION_NUM
-
-inline void add_ca_certificates()
-{
-    char* env = curl_getenv ("SSL_CERT_FILE");
-
-    if (env == NULL)
-    {
-        int r{};
-
-#ifndef _WIN32
-        r = setenv ("SSL_CERT_FILE", ca_certificates_file (), 0 /* overwrite */);
-#else
-        char* v = curl_maprintf ("SSL_CERT_FILE=%s", ca_certificates_file ());
-
-        if (v != NULL)
-        {
-          r = _putenv (v);
-          free (v);
-        }
-        else
-            r = -1;
-#endif
-    }
-}
-
-struct AutoCert
-{
-    AutoCert()
-    {
-            add_ca_certificates();
-    }
-};
-
-static AutoCert autoCertInst;
 
 #endif

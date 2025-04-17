@@ -3,7 +3,8 @@ impl_libs = # Implementation dependencies.
 #import xxxx_libs += libcurl%lib{curl}
 
 import intf_libs += libcurl%lib{curl}
-import ca_certificates += libca-certificates-curl%lib{ca-certificates-curl}
+import intf_libs += libca-certificates-curl%lib{ca-certificates-curl}
+#import ca_certificates += libca-certificates-curl%lib{ca-certificates-curl}
 
 # Public headers.
 #
@@ -17,7 +18,7 @@ lib{cpr}: $pub/{$pub_hdrs}
 
 # Private headers and sources as well as dependencies.
 #
-lib{cpr}: {hxx cxx}{**} $impl_libs $intf_libs $ca_certificates
+lib{cpr}: {hxx cxx}{**} $impl_libs $intf_libs #$ca_certificates
 
 # Build options.
 #
