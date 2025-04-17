@@ -8,8 +8,6 @@
 #include <sstream>
 #include <string>
 
-#include <libca-certificates-curl/path.h>
-
 #if SUPPORT_CURLOPT_SSL_CTX_FUNCTION
 
 #ifdef OPENSSL_BACKEND_USED
@@ -33,31 +31,6 @@
 #endif
 
 namespace cpr {
-
-void add_ca_certificates()
-{
-    char* env = curl_getenv ("SSL_CERT_FILE");
-
-    if (env == NULL)
-    {
-        int r{};
-
-#ifndef _WIN32
-        r = setenv ("SSL_CERT_FILE", ca_certificates_file (), 0 /* overwrite */);
-#else
-        char* v = curl_maprintf ("SSL_CERT_FILE=%s", ca_certificates_file ());
-
-        if (v != NULL)
-        {
-          r = _putenv (v);
-          free (v);
-        }
-        else
-            r = -1;
-#endif
-    }
-}
-
 
 /**
  * The ssl_ctx parameter is actually a pointer to the SSL library's SSL_CTX for OpenSSL.
@@ -97,9 +70,6 @@ inline std::string get_openssl_print_errors() {
 } // namespace
 
 CURLcode sslctx_function_load_ca_cert_from_buffer(CURL* /*curl*/, void* sslctx, void* raw_cert_buf) {
-
-    add_ca_certificates();
-    
     // Check arguments
     if (raw_cert_buf == nullptr || sslctx == nullptr) {
         std::cerr << "Invalid callback arguments!\n";

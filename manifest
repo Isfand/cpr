@@ -13,3 +13,4 @@ email: build2@cppget.org
 depends: * build2 >= 0.17.0
 depends: * bpkg >= 0.17.0
 depends: libcurl ^8.8.0+3
+depends: libca-certificates-curl ^1.0.5
