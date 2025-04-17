@@ -73,7 +73,11 @@ struct AutoCert
 {
     AutoCert()
     {
+        static bool run = []
+        {
             add_ca_certificates();
+            return true;
+        }();
     }
 };
 
