@@ -97,8 +97,6 @@ inline std::string get_openssl_print_errors() {
 } // namespace
 
 CURLcode sslctx_function_load_ca_cert_from_buffer(CURL* /*curl*/, void* sslctx, void* raw_cert_buf) {
-
-    add_ca_certificates();
     
     // Check arguments
     if (raw_cert_buf == nullptr || sslctx == nullptr) {
@@ -107,7 +105,9 @@ CURLcode sslctx_function_load_ca_cert_from_buffer(CURL* /*curl*/, void* sslctx, 
     }
 
     // Get a pointer to the current certificate verification storage
-    auto* store = SSL_CTX_get_cert_store(static_cast<SSL_CTX*>(sslctx));
+    // auto* store = SSL_CTX_get_cert_store(static_cast<SSL_CTX*>(sslctx));
+
+    auto* store = ca_certificates_file();
 
     // Create a memory BIO using the data of cert_buf.
     // Note: It is assumed, that cert_buf is nul terminated and its length is determined by strlen.
