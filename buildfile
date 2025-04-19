@@ -1,5 +1,7 @@
-./: {*/ -build/ -upstream/} doc{README.md LICENSE} manifest
+# file      : buildfile
+# license   : libcpr License; see accompanying LICENSE file
 
-# Don't install tests.
-#
-tests/: install = false
+# Glue buildfile that "pulls" all the packages.
+
+import pkgs = {*/ -upstream/}
+./: $pkgs
