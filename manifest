@@ -1,5 +1,5 @@
 : 1
-name: cpr
+name: libcpr
 version: 1.11.2
 type: lib
 language: c++

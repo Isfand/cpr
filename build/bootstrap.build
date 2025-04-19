@@ -1,4 +1,4 @@
-project = cpr
+project = libcpr
 
 using version
 using config

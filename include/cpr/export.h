@@ -8,21 +8,21 @@
 // used before their inline definition. The workaround is to reorder code. In
 // the end it's all trial and error.
 
-#if defined(CPR_STATIC)         // Using static.
-#  define CPR_SYMEXPORT
-#elif defined(CPR_STATIC_BUILD) // Building static.
-#  define CPR_SYMEXPORT
-#elif defined(CPR_SHARED)       // Using shared.
+#if defined(LIBCPR_STATIC)         // Using static.
+#  define LIBCPR_SYMEXPORT
+#elif defined(LIBCPR_STATIC_BUILD) // Building static.
+#  define LIBCPR_SYMEXPORT
+#elif defined(LIBCPR_SHARED)       // Using shared.
 #  ifdef _WIN32
-#    define CPR_SYMEXPORT __declspec(dllimport)
+#    define LIBCPR_SYMEXPORT __declspec(dllimport)
 #  else
-#    define CPR_SYMEXPORT
+#    define LIBCPR_SYMEXPORT
 #  endif
-#elif defined(CPR_SHARED_BUILD) // Building shared.
+#elif defined(LIBCPR_SHARED_BUILD) // Building shared.
 #  ifdef _WIN32
-#    define CPR_SYMEXPORT __declspec(dllexport)
+#    define LIBCPR_SYMEXPORT __declspec(dllexport)
 #  else
-#    define CPR_SYMEXPORT
+#    define LIBCPR_SYMEXPORT
 #  endif
 #else
 // If none of the above macros are defined, then we assume we are being used
@@ -34,6 +34,6 @@
 // then you will probably want to replace the fallback with the (commented
 // out) error since it won't work for the shared case.
 //
-#  define CPR_SYMEXPORT         // Using static or shared.
-//#  error define CPR_STATIC or CPR_SHARED preprocessor macro to signal cpr library type being linked
+#  define LIBCPR_SYMEXPORT         // Using static or shared.
+//#  error define LIBCPR_STATIC or LIBCPR_SHARED preprocessor macro to signal libcpr library type being linked
 #endif

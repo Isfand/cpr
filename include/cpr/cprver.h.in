@@ -19,16 +19,16 @@
 // 3.0.0-b.2    0000299999999995020
 // 2.2.0-a.1.z  0000200001999990011
 //
-#define CPR_VERSION       $cpr.version.project_number$ULL
-#define CPR_VERSION_STR   "$cpr.version.project$"
-#define CPR_VERSION_ID    "$cpr.version.project_id$"
-#define CPR_VERSION_FULL  "$cpr.version$"
+#define LIBCPR_VERSION       $libcpr.version.project_number$ULL
+#define LIBCPR_VERSION_STR   "$libcpr.version.project$"
+#define LIBCPR_VERSION_ID    "$libcpr.version.project_id$"
+#define LIBCPR_VERSION_FULL  "$libcpr.version$"
 
-#define CPR_VERSION_MAJOR $cpr.version.major$
-#define CPR_VERSION_MINOR $cpr.version.minor$
-#define CPR_VERSION_PATCH $cpr.version.patch$
+#define LIBCPR_VERSION_MAJOR $libcpr.version.major$
+#define LIBCPR_VERSION_MINOR $libcpr.version.minor$
+#define LIBCPR_VERSION_PATCH $libcpr.version.patch$
 
-#define CPR_PRE_RELEASE   $cpr.version.pre_release$
+#define LIBCPR_PRE_RELEASE   $libcpr.version.pre_release$
 
-#define CPR_SNAPSHOT_SN   $cpr.version.snapshot_sn$ULL
-#define CPR_SNAPSHOT_ID   "$cpr.version.snapshot_id$"
+#define LIBCPR_SNAPSHOT_SN   $libcpr.version.snapshot_sn$ULL
+#define LIBCPR_SNAPSHOT_ID   "$libcpr.version.snapshot_id$"
