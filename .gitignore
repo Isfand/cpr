@@ -30,7 +30,8 @@
 *.exe.manifest
 *.pc
 
+.cache
+
 # Compilation database.
 #
 compile_commands.json
-.cache
